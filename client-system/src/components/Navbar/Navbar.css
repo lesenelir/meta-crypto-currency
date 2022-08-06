@@ -1,0 +1,34 @@
+.navbar-box {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: darkseagreen;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 24px;
+}
+
+ul > li {
+  list-style: none;
+  text-align: center;
+  color: white;
+}
+
+.login-li {
+  background-color: dodgerblue;
+  border-radius: 5px;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+.login-li:hover {
+  background-color: darkblue;
+}
