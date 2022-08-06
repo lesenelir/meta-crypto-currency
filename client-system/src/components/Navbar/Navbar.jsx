@@ -1,3 +1,5 @@
+
+import logo from '../../assets/images/logo.png'
 import './Navbar.css'
 
 const NavbarItem = (props) => {
@@ -11,9 +13,13 @@ const navbarArr = ["Market", "Exchange", "Tutorials", "Wallets"]
 function Navbar() {
   return (
       <div className="navbar-box">
+        <div className="img-box">
+          <img src={logo} alt="" width={50} height={50} />
+          <h2>Lesenelir's Crypto App</h2>
+        </div>
         <ul>
           {navbarArr.map((item, index) => (
-              <NavbarItem key={index} title={item}/>
+              <NavbarItem key={item + index} title={item}/>
           ))}
           <li className="login-li">Login</li>
         </ul>

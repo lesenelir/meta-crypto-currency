@@ -1,6 +1,13 @@
+
+
+import './Welcome.css'
+
+
 function Welcome() {
   return (
-      <h1>Welcome</h1>
+      <div className="welcome-box">
+      1
+      </div>
   )
 }
 
