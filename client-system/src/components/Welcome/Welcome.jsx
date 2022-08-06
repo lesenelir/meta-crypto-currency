@@ -48,7 +48,7 @@ function Welcome() {
         </div>
 
        <div className="welcome-box-right">
-         Right
+         Right Page
        </div>
       </div>
   )
