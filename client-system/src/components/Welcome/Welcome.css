@@ -1,0 +1,101 @@
+.welcome-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 100px;
+}
+
+/*左侧*/
+.welcome-h1 {
+  color: #444444;
+}
+
+.welcome-p {
+  color: #444444;
+  margin-top: 20px;
+}
+
+.connect-btn {
+  width: 513px;
+  height: 40px;
+  margin-top: 30px;
+  color: white;
+  font-weight: 600;
+  border: 1px solid #444444;
+  background-color: dodgerblue;
+  border-radius: 20px;
+}
+
+.connect-btn:hover {
+  background-color: #2C62DF;
+  cursor: pointer;
+}
+
+.box-left-bottom {
+  width: 513px;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 60px;
+}
+
+.l1 {
+  width: 171px;
+  height: 50px;
+  border: 1px solid #444444;
+  border-top-left-radius: 10px;
+}
+
+.l2 {
+  width: 171px;
+  height: 50px;
+  border-left: 1px solid #444444;
+  border-bottom: 1px solid #444444;
+  border-right: 1px solid #444444;
+  border-bottom-left-radius: 10px;
+}
+
+.m1 {
+  width: 171px;
+  height: 50px;
+  border-top: 1px solid #444444;
+  border-right: 1px solid #444444;
+  border-bottom: 1px solid #444444;
+}
+
+.m2 {
+  width: 171px;
+  height: 50px;
+  border-right: 1px solid #444444;
+  border-bottom: 1px solid #444444;
+}
+
+.r1 {
+  width: 171px;
+  height: 50px;
+  border-top: 1px solid #444444;
+  border-right: 1px solid #444444;
+  border-bottom: 1px solid #444444;
+  border-top-right-radius: 10px;
+}
+
+.r2 {
+  width: 171px;
+  height: 50px;
+  border-right: 1px solid #444444;
+  border-bottom: 1px solid #444444;
+  border-bottom-right-radius: 10px;
+}
+
+.l1,
+.l2,
+.m1,
+.m2,
+.r1,
+.r2 {
+  text-align: center;
+  line-height: 50px;
+}
+
+/*右侧*/
