@@ -41,4 +41,4 @@ cache
 artifacts
 
 # secret files
-secrets/
+/secrets/
