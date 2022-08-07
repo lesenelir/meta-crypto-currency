@@ -36,7 +36,9 @@ coverage.json
 typechain
 typechain-types
 
-#Hardhat files
+# Hardhat files
 cache
 artifacts
 
+# secret files
+secrets
