@@ -1,17 +1,40 @@
+import { SiEthereum } from "react-icons/si"
+import { BsInfoCircle } from "react-icons/bs"
+
+import Loader from "../Loader/Loader"
 
 import './Welcome.css'
 
 
-const Input = () => {
-
+const Input = (props) => {
+  return (
+      <input
+          className="welcome-input"
+          placeholder={props.placeholder}
+          type={props.type}
+          step="0.0001"
+          value={props.value}
+          onChange={(e) => props.handleChange(e, props.name)}
+      />
+  )
 }
 
 
 function Welcome() {
+  const isLoading = false
 
   const connectWallet = () => {
 
   }
+
+  const handleChange = () => {
+
+  }
+
+  const handleSubmit = () => {
+
+  }
+
 
   return (
       <div className="welcome-box">
@@ -47,9 +70,46 @@ function Welcome() {
           </div>
         </div>
 
-       <div className="welcome-box-right">
-         Right Page
-       </div>
+        <div className="welcome-box-right">
+          <div className="welcome-card">
+            <div className="welcome-card-top">
+              <div className="card-logo">
+                <SiEthereum fontSize={30} color="#444" />
+              </div>
+              <BsInfoCircle style={{marginRight: '10px'}} fontSize={20} color="#444" />
+            </div>
+            <div className="welcome-card-p">
+              <p className="p1">Address</p>
+              <p className="p2">Ethereum</p>
+            </div>
+          </div>
+
+          <div className="welcome-right-form">
+            <Input placeholder="Address To" name="addressTo" type="text" handleChange={handleChange} />
+            <Input placeholder="Amount (ETH)" name="amount" type="number" handleChange={handleChange} />
+            <Input placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={handleChange} />
+            <Input placeholder="Enter Message" name="message" type="text" handleChange={handleChange} />
+
+            <div className="welcome-right-hr"/>
+
+            {
+              isLoading ? (
+                  <Loader/>
+              ) : (
+                  <button
+                      type="submit"
+                      onClick={handleSubmit}
+                      className="send-btn"
+                  >
+                    Send Now
+                  </button>
+              )
+            }
+
+          </div>
+
+        </div>
+
       </div>
   )
 }
