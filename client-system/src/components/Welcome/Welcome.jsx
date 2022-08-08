@@ -1,3 +1,5 @@
+import {useContext} from "react"
+import {TransactionContext} from "../../context/TransactionContext"
 import { SiEthereum } from "react-icons/si"
 import { BsInfoCircle } from "react-icons/bs"
 
@@ -23,16 +25,17 @@ const Input = (props) => {
 function Welcome() {
   const isLoading = false
 
-  const connectWallet = () => {
+  const { connectWallet, currentAccount, formData, setFormData, handleChange, sendTransaction } = useContext(TransactionContext)
 
-  }
 
-  const handleChange = () => {
+  const handleSubmit = (e) => {
+    const { addressTo, amount, keyword, message } = formData
 
-  }
+    // 阻止提交表单重新加载页面
+    e.preventDefault()
 
-  const handleSubmit = () => {
-
+    if (!addressTo || !amount || !keyword || !message) return
+    sendTransaction()
   }
 
 
@@ -48,12 +51,16 @@ function Welcome() {
              Lesenelir's Crypto App to be your crypto market partner.
            </p>
           </div>
-          <button
-             className="connect-btn"
-             onClick={connectWallet}
-          >
-           <p>Connect Wallet</p>
-          </button>
+          {
+            !currentAccount && (
+                <button
+                    className="connect-btn"
+                    onClick={connectWallet}
+                >
+                  <p>Connect Wallet</p>
+                </button>
+            )
+          }
           <div className="box-left-bottom">
             <div className="l">
               <div className="l1">Reliability</div>
