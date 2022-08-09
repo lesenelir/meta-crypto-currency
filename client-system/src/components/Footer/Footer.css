@@ -1,0 +1,37 @@
+.footer-box {
+  margin-top: 100px;
+}
+
+.footer-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-text p {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #444444;
+}
+
+.footer-hr {
+  width: 80%;
+  margin: 0 auto;
+  border-top: 1px solid #444444;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  /*background-color: dodgerblue;*/
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 10px;
+}
