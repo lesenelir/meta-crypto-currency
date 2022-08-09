@@ -1,5 +1,5 @@
-
 import logo from '../../assets/images/logo.png'
+
 import './Navbar.css'
 
 const NavbarItem = (props) => {
@@ -15,7 +15,7 @@ function Navbar() {
       <div className="navbar-box">
         <div className="img-box">
           <img src={logo} alt="" width={50} height={50} />
-          <h2>Lesenelir's Crypto App</h2>
+          <h2>Lesenelir's Crypto Website</h2>
         </div>
         <ul>
           {navbarArr.map((item, index) => (

@@ -4,7 +4,7 @@ function Footer() {
   return (
       <div className="footer-box">
         <div className="footer-text">
-          <p>Come join us and hear for the unexpected miracle</p>
+          <p>Come to join us and witness for the unexpected miracle</p>
           <p>miaomiaobabyzy@gmail.com</p>
         </div>
 

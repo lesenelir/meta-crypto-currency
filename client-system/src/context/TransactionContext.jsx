@@ -4,7 +4,7 @@ import {ethers} from "ethers"
 import {contractABI, contractAddress} from "../utils/constants"
 
 
-export const TransactionContext = createContext()
+export const TransactionContext = createContext({})
 
 
 // 解构window中的ethereum
@@ -155,7 +155,7 @@ function TransactionProvider(props) {
 
       const transactionCount = await transactionContract.getTransactionCount()
       setTransactionCount(transactionCount.toNumber())
-      window.reload()
+      window.location.reload()
     } catch (error) {
       console.log(error)
       throw new Error('No ethereum object.')

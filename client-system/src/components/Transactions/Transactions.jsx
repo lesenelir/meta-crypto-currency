@@ -35,7 +35,7 @@ const TransactionCard = (props) => {
         </div>
         {/* 图片 */}
         <img
-            src={gifUrl || 'https://metro.co.uk/wp-content/uploads/2015/05/pokemon_crying.gif?quality=90&strip=all&zoom=1&resize=500%2C284'}
+            src={gifUrl || "https://metro.co.uk/wp-content/uploads/2015/05/pokemon_crying.gif?quality=90&strip=all&zoom=1&resize=500%2C284" }
             alt="gif"
             className="transaction-card-img"
         />
@@ -69,7 +69,8 @@ function Transactions() {
 
         <div className="transaction-box-bottom">
           {
-            transactions.reverse().map((item, index) => (
+            // 截取数组的最后8个作为显示
+            transactions.slice(-8).map((item, index) => (
               <TransactionCard key={index} {...item} />
             ))
           }
