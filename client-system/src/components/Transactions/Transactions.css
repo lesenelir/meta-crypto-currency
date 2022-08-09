@@ -1,0 +1,52 @@
+.transaction-box-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  color: #444444;
+}
+
+.transaction-box-bottom {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  /*background-color: red;*/
+}
+
+/*TransactionCar 卡片*/
+.transaction-card-box {
+  width: 400px;
+  height: 420px;
+  margin-top: 40px;
+  background-color: rgba(137, 206, 195, .7);
+}
+
+.transaction-card-box p {
+  color: #444444;
+  margin-top: 10px;
+}
+
+.transaction-card-text-box a {
+  text-decoration: none;
+}
+
+.transaction-card-img {
+  width: 400px;
+  height: 200px;
+  margin-top: 20px;
+}
+
+.transaction-card-time-box {
+  width: 80%;
+  height: 10%;
+  margin: 0 auto;
+  background-color: rgba(137, 206, 220, 1);
+  border-radius: 10px;
+}
+
+.transaction-card-time-box p {
+  text-align: center;
+  line-height: 45px;
+}
+

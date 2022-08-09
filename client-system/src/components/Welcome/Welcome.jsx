@@ -6,6 +6,7 @@ import { BsInfoCircle } from "react-icons/bs"
 import Loader from "../Loader/Loader"
 
 import './Welcome.css'
+import shortenAddress from "../../utils/shortenAddress"
 
 
 const Input = (props) => {
@@ -25,7 +26,13 @@ const Input = (props) => {
 function Welcome() {
   const isLoading = false
 
-  const { connectWallet, currentAccount, formData, setFormData, handleChange, sendTransaction } = useContext(TransactionContext)
+  const {
+    connectWallet,
+    currentAccount,
+    formData,
+    handleChange,
+    sendTransaction
+  } = useContext(TransactionContext)
 
 
   const handleSubmit = (e) => {
@@ -86,8 +93,8 @@ function Welcome() {
               <BsInfoCircle style={{marginRight: '10px'}} fontSize={20} color="#444" />
             </div>
             <div className="welcome-card-p">
-              <p className="p1">Address</p>
-              <p className="p2">Ethereum</p>
+              <p className="p1">{shortenAddress(currentAccount)}</p>
+              <h3 className="p2">Ethereum</h3>
             </div>
           </div>
 

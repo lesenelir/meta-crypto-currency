@@ -141,13 +141,14 @@
 }
 
 .welcome-card-p .p1 {
+  font-size: 14px;
   margin-bottom: 10px;
   margin-left: 10px;
 }
 
 .welcome-card-p .p2 {
+  font-size: 18px;
   margin-bottom: 10px;
-
   margin-left: 10px;
 }
 
