@@ -1,0 +1,77 @@
+.services-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 100px;
+}
+
+
+/*左侧*/
+.services-box-left {
+  /*特殊处理*/
+  margin-left: 60px;
+}
+
+.services-box-left h1 {
+  color: #444444;
+}
+
+.services-box-left p {
+  color: #444444;
+  margin-top: 20px;
+}
+
+.services-box-left h5 {
+  color: #2C62DF;
+  margin-top: 20px;
+}
+
+.services-box-left h5:hover {
+  cursor: pointer;
+}
+
+
+/*卡片*/
+.card-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 600px;
+  height: 100px;
+  border: 1px solid #444444;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.card-box-left-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.card-box-middle {
+  margin-left: 10px;
+}
+
+.card-box-middle h3 {
+  margin-top: 10px;
+  color: #444444;
+}
+
+.card-box-middle p {
+  margin-top: 10px;
+  color: #444444;
+}
+
+/*该盒子用来占位*/
+.card-box-right {
+  width: 100px;
+  height: 100px;
+  /*background-color: dodgerblue;*/
+}
+
