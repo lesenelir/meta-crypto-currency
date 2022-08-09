@@ -24,14 +24,14 @@ const Input = (props) => {
 
 
 function Welcome() {
-  const isLoading = false
 
   const {
     connectWallet,
     currentAccount,
     formData,
     handleChange,
-    sendTransaction
+    sendTransaction,
+    isLoading
   } = useContext(TransactionContext)
 
 

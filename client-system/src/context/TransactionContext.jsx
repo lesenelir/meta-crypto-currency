@@ -1,4 +1,4 @@
-import {createContext, useEffect, useState} from "react"
+import {createContext, useCallback, useEffect, useState} from "react"
 import {ethers} from "ethers"
 
 import {contractABI, contractAddress} from "../utils/constants"
@@ -35,6 +35,7 @@ function TransactionProvider(props) {
   const [formData, setFormData] = useState({addressTo: '', amount: '', keyword: '', message: ''})
   const [isLoading, setIsLoading] = useState(false)
   const [transactionCount, setTransactionCount] = useState(localStorage.getItem('transactionCount'))
+  const [transactions, setTransactions] = useState([])
 
   // 修改formData函数
   const handleChange = (e, name) => {
@@ -46,8 +47,34 @@ function TransactionProvider(props) {
     })
   }
 
+  // 获得所有交易
+  const getAllTransactions = async () => {
+    try {
+      if (!ethereum) return alert('please install metamask!')
+
+      const transactionContract = getEthereumContract()
+      const availableTransactions = await transactionContract.getAllTransactions()
+
+      const structuredTransactions = availableTransactions.map((transaction) => {
+        return {
+          addressTo: transaction.receiver,
+          addressFrom: transaction.sender,
+          timestamp: new Date(transaction.timestamp.toNumber() * 1000).toLocaleString(),
+          message: transaction.message,
+          keyword: transaction.keyword,
+          amount: parseInt(transaction.amount._hex) / (10 ** 18)
+        }
+      })
+
+      setTransactions(structuredTransactions)
+      console.log(structuredTransactions)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   // 检查是否连接钱包函数
-  const checkIfWalletIsConnected = async () => {
+  const checkIfWalletIsConnected = useCallback( async () => {
     try {
       if (!ethereum) return alert('please install metamask!')
 
@@ -57,13 +84,26 @@ function TransactionProvider(props) {
       if (accounts.length) {
         setCurrentAccount(accounts[0])
         // 获得所有交易的请求
-        // getAllTransactions()
+        await getAllTransactions()
       } else {
         console.log('No accounts found')
       }
     } catch (error) {
       console.log(error)
       throw new Error('No ethereum object.')
+    }
+  }, [])
+
+  // 检查交易是否存在函数
+  const checkIfTransactionsExist = async () => {
+    try {
+      const transactionContract = getEthereumContract()
+      const transactionCount = await transactionContract.getTransactionCount()
+
+      window.localStorage.setItem('transactionCount', transactionCount)
+    } catch (error) {
+      console.log(error)
+      throw new Error('No ethereum object')
     }
   }
 
@@ -115,17 +155,20 @@ function TransactionProvider(props) {
 
       const transactionCount = await transactionContract.getTransactionCount()
       setTransactionCount(transactionCount.toNumber())
-
+      window.reload()
     } catch (error) {
       console.log(error)
       throw new Error('No ethereum object.')
     }
   }
 
-
+  // 此处可以修改
   useEffect(() => {
-    checkIfWalletIsConnected()
-  }, [])
+    (async () => {
+      await checkIfWalletIsConnected()
+      await checkIfTransactionsExist()
+    })()
+  }, [checkIfWalletIsConnected])
 
   return (
       <TransactionContext.Provider value={{
@@ -134,7 +177,10 @@ function TransactionProvider(props) {
         formData,
         setFormData,
         handleChange,
-        sendTransaction
+        sendTransaction,
+        transactions,
+        isLoading,
+        transactionCount
       }}>
         {props.children}
       </TransactionContext.Provider>
