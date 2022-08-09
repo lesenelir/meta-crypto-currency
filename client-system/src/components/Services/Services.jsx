@@ -50,23 +50,23 @@ function Services() {
 
         <div className="services-box-right">
           <Card
-              color="#2952E3"
+              color="#4169E1"
               title="Security gurantee"
-              icon={<BsShieldFillCheck fontSize={30} color="#fff" />}
+              icon={<BsShieldFillCheck fontSize={20} color="#fff" />}
               subtitle="Security is guranteed.
                 We always maintain privacy and maintain the quality of our products"
           />
           <Card
               color="#8945F8"
               title="Best exchange rates"
-              icon={<BiSearchAlt fontSize={30} color="#fff" />}
+              icon={<BiSearchAlt fontSize={20} color="#fff" />}
               subtitle="Minimum Transaction Fee.
                 We always maintain the best commission rates of our products"
           />
           <Card
-              color="#F84550"
+              color="	#DC143C"
               title="Fastest transactions"
-              icon={<RiHeart2Fill fontSize={30} color="#fff" />}
+              icon={<RiHeart2Fill fontSize={20} color="#fff" />}
               subtitle="Fastest transactions speed.
                 We always maintain the fastest transactions speed of our products"
           />
