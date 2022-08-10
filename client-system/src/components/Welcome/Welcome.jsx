@@ -50,7 +50,7 @@ function Welcome() {
       <div className="welcome-box">
         <div className="welcome-box-left">
           <div className="box-left-top">
-           <h1 className="welcome-h1">Send Crypto <br/> around the world </h1>
+           <h1 className="welcome-h1">Send Crypto <br/> in the Rinkeby Network </h1>
            <p className="welcome-p">
              Explore the web3.0 world.
              Buy and sell crypto currencies easily.
