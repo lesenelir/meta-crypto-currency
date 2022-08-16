@@ -7,15 +7,15 @@ import {contractABI, contractAddress} from "../utils/constants"
 export const TransactionContext = createContext({})
 
 
-// 解构window中的ethereum
+// 解构window中的ethereum - 安装metamask就会有ethereum对象
 const {ethereum} = window
 
 // 连接合约函数
 // 该函数可以去smart contract 进行交互连接
 const getEthereumContract = () => {
-  // 提供者
+  // 提供者 - 连接以太坊网络的抽象
   const provider = new ethers.providers.Web3Provider(ethereum)
-  // 签名者
+  // 签名者 - 以太坊账户的抽象
   const signer = provider.getSigner()
   // 交易合约
   // console.log({
@@ -23,7 +23,9 @@ const getEthereumContract = () => {
   //   signer,
   //   transactionContract
   // })
-  // 返回交易合约
+
+  // 返回交易合约实例
+  // Contract 常用于已存在链上的合约时
   return new ethers.Contract(contractAddress, contractABI, signer)
 }
 
@@ -48,6 +50,7 @@ function TransactionProvider(props) {
   }
 
   // 获得所有交易
+  // 作用域Transactions.jsx
   const getAllTransactions = async () => {
     try {
       if (!ethereum) return alert('please install metamask!')
@@ -74,7 +77,7 @@ function TransactionProvider(props) {
   }
 
   // 检查是否连接钱包函数
-  const checkIfWalletIsConnected = useCallback( async () => {
+  const checkIfWalletIsConnected = useCallback(async () => {
     try {
       if (!ethereum) return alert('please install metamask!')
 
@@ -107,7 +110,7 @@ function TransactionProvider(props) {
     }
   }
 
-  // 连接钱包函数
+  // Welcome.jsx连接钱包函数
   const connectWallet = async () => {
     try {
       if (!ethereum) return alert('please install metamask!')
@@ -125,9 +128,10 @@ function TransactionProvider(props) {
   const sendTransaction = async () => {
     try {
       if (!ethereum) return alert('please install metamask!')
-      // get the data from Form
-      const { addressTo, amount, keyword, message } = formData
+      // 获取表单数据
+      const {addressTo, amount, keyword, message} = formData
       // get the contract from the transaction. 可以利用该变量去调用smart contract中的函数
+      // 发送交易之前要获得合约的实例
       const transactionContract = getEthereumContract()
       console.log(transactionContract)
       // ether amount change to wei
@@ -143,9 +147,9 @@ function TransactionProvider(props) {
         }]
       })
 
-      // store transaction
+      // store transaction 把此次交易存储到区块链上
       // async function: transactionContract.addToBlockchain . Needed some time to take this TX
-      const transactionHash  = await transactionContract.addToBlockchain(addressTo, parsedAmount, message, keyword)
+      const transactionHash = await transactionContract.addToBlockchain(addressTo, parsedAmount, message, keyword)
 
       setIsLoading(true)
       console.log(`Loading - ${transactionHash.hash}`)
