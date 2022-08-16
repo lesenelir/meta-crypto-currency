@@ -10,8 +10,11 @@ export const TransactionContext = createContext({})
 // 解构window中的ethereum - 安装metamask就会有ethereum对象
 const {ethereum} = window
 
-// 连接合约函数
-// 该函数可以去smart contract 进行交互连接
+// 获取合约实例函数
+// 该函数可以和smart contract 进行交互连接，并最终返回一个合约实例
+/**
+ * @returns {Contract}
+ */
 const getEthereumContract = () => {
   // 提供者 - 连接以太坊网络的抽象
   const provider = new ethers.providers.Web3Provider(ethereum)
@@ -87,7 +90,7 @@ function TransactionProvider(props) {
       if (accounts.length) {
         setCurrentAccount(accounts[0])
         // 获得所有交易的请求
-        await getAllTransactions()
+        await getAllTransactions() // 每次检查是否连接钱包后都调用获取transactions数据
       } else {
         console.log('No accounts found')
       }
